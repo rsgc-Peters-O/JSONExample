@@ -159,7 +159,7 @@ class ViewController : UIViewController {
         // print("====== the data provided to parseMyJSON is as follows ======")
         // print(theData)
         
-        // Convert the data into a String
+        // Convert the data into a String (this will get rid of the "//" in front of the API data)
         guard var rawDataAsString = String(data: theData, encoding: .utf8) else {
             print("could not convert data to string")
             return
@@ -239,10 +239,10 @@ class ViewController : UIViewController {
 //            guard let infoCurrentPrice = tickerData["el"] as? String else {
 //            print("Could not obtain the current price of the stock");
 //                return            }
-//            guard let infoClosingDate = tickerData["lt"] as? String else {
-//                print("Could not obtain the closing date of the stock")
-//                return
-//            }
+            guard let infoClosingDate = tickerData["lt"] as? String else {
+                print("Could not obtain the closing date of the stock")
+                return
+            }
             guard let infoClosingPrice = tickerData["l"] as? String else {
                 print("Could not obtain the closing price of the stock")
                 return
@@ -285,9 +285,9 @@ class ViewController : UIViewController {
 //            infoSummary += infoCurrentPrice
 //            infoSummary += "\n"
             infoSummary += "-------------------------------"
-//            infoSummary += "\n"
-//            infoSummary += "At Closing:  "
-//            infoSummary += infoClosingDate
+            infoSummary += "\n"
+            infoSummary += "At Closing:  "
+            infoSummary += infoClosingDate
             infoSummary += "\n"
             infoSummary += "Price is:    "
             infoSummary += infoClosingPrice
@@ -351,21 +351,5 @@ class ViewController : UIViewController {
     //**********************************************************************************************************
     
 } // ViewController
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
