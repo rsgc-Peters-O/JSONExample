@@ -311,7 +311,7 @@ class ViewController : UIViewController {
             
             print(infoSummary)
             
-            output.text = infoTicker + " * " + infoExchange + " * " + infoClosingPrice
+            output.text = infoTicker + " * " + infoExchange + " * " + infoClosingPrice + " * " + infoClosingDate
 
             return
             
